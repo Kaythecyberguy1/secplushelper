@@ -1007,4 +1007,81 @@ footer {
     .notes-section {
         grid-template-columns: 1fr;
     }
+}
+
+/* Sub-notes Styles */
+.sub-notes {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    list-style-type: circle;
+}
+
+.sub-notes li {
+    color: #666;
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+}
+
+/* Resources Section Styles */
+.resources-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.resources-section h4 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.resource-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #2ecc71;
+}
+
+.resource-card h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.resource-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resource-card li {
+    padding: 0.5rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.resource-card li:before {
+    content: "📚";
+    position: absolute;
+    left: 0;
+}
+
+/* Enhanced Note Card Styles */
+.note-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+    .sub-notes {
+        margin-left: 1rem;
+    }
+
+    .resource-card {
+        padding: 1rem;
+    }
 } 

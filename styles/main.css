@@ -614,6 +614,41 @@ footer {
     background: #e8f5e9;
 }
 
+
+.accordion {
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: 8px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+  }
+  .accordion:hover {
+    background-color: #eef2f7;
+  }
+  .accordion:after {
+    content: '\25BC';
+    float: right;
+  }
+  .accordion.active:after {
+    content: '\25B2';
+  }
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 2px solid #0b5ed7;
+    margin-bottom: 16px;
+  }
+
 .option.incorrect {
     border-color: #f44336;
     background: #ffebee;

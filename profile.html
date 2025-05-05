@@ -1,190 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Security+ SY0-701</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile - Security+ SY0-701</title>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>Security+ SY0-701</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="study-materials.html">Study Materials</a></li>
-                <li><a href="practice-questions.html">Practice Questions</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="exam-tips.html">Exam Tips</a></li>
-                <li id="nav-logout"><a href="#" class="logout-link">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="profile-section">
-            <div class="profile-header">
-                <h2><i class="fas fa-user-circle"></i> My Profile</h2>
-                <div class="profile-stats">
-                    <div class="stat-card">
-                        <i class="fas fa-book"></i>
-                        <span class="stat-value" id="notes-count">0</span>
-                        <span class="stat-label">Notes</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-flask"></i>
-                        <span class="stat-value" id="labs-count">0</span>
-                        <span class="stat-label">Labs</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-trophy"></i>
-                        <span class="stat-value" id="achievements-count">0</span>
-                        <span class="stat-label">Achievements</span>
-                    </div>
-                </div>
-            </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Security+ SY0-701</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="study-materials.html">Study Materials</a></li>
+        <li><a href="practice-questions.html">Practice Questions</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="exam-tips.html">Exam Tips</a></li>
+        <li><a href="#" class="logout-link" id="nav-logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <div class="profile-content">
-                <div class="profile-card">
-                    <h3><i class="fas fa-user-edit"></i> Account Settings</h3>
-                    <form id="profileForm" class="profile-form">
-                        <div class="form-group">
-                            <label for="profile-display"><i class="fas fa-user"></i> Display Name</label>
-                            <input type="text" id="profile-display" name="display" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="profile-email"><i class="fas fa-envelope"></i> Email/Username</label>
-                            <input type="text" id="profile-email" name="email" required disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="profile-password"><i class="fas fa-lock"></i> Password</label>
-                            <input type="password" id="profile-password" name="password" placeholder="Leave blank to keep current">
-                        </div>
-                        <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Changes</button>
-                        <div id="profile-error" class="auth-error"></div>
-                    </form>
-                </div>
-
-                <div class="profile-card">
-                    <h3><i class="fas fa-sticky-note"></i> My Notes</h3>
-                    <div class="notes-container">
-                        <textarea id="user-notes" rows="6" placeholder="Write or paste your notes here..."></textarea>
-                        <button id="save-notes" class="save-btn"><i class="fas fa-save"></i> Save Notes</button>
-                        <div id="notes-status" class="status-message"></div>
-                    </div>
-                </div>
-
-                <div class="profile-card">
-                    <h3><i class="fas fa-code"></i> Practice Lab / Code</h3>
-                    <div class="lab-container">
-                        <textarea id="user-lab" rows="6" placeholder="Write or paste your practice code/lab notes here..."></textarea>
-                        <div class="lab-buttons">
-                            <button id="save-lab" class="save-btn"><i class="fas fa-save"></i> Save Lab Notes</button>
-                            <button id="get-free-lab" class="lab-btn"><i class="fas fa-flask"></i> Get Free Lab to Practice</button>
-                        </div>
-                        <div id="lab-status" class="status-message"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="back-home">
-            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  <main>
+    <section class="profile-section">
+      <header class="profile-header">
+        <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+        <div class="profile-stats">
+          <div class="stat-card">
+            <i class="fas fa-book"></i>
+            <span id="notes-count">0</span>
+            <p>Notes</p>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-flask"></i>
+            <span id="labs-count">0</span>
+            <p>Labs</p>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-trophy"></i>
+            <span id="achievements-count">0</span>
+            <p>Achievements</p>
+          </div>
         </div>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Security+ Study Guide. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+      </header>
+
+      <div class="profile-content">
+        <!-- Account Settings -->
+        <article class="profile-card">
+          <h3><i class="fas fa-user-edit"></i> Account Settings</h3>
+          <form id="profileForm" class="profile-form">
+            <div class="form-group">
+              <label for="profile-display"><i class="fas fa-user"></i> Display Name</label>
+              <input type="text" id="profile-display" name="display" required placeholder="Enter your display name"/>
             </div>
-        </div>
-    </footer>
-    <script src="js/profile.js"></script>
-    <!-- Free Lab Modal -->
-    <div id="free-lab-modal" class="modal" style="display:none;">
-      <div class="modal-content">
-        <span class="close-modal" id="close-lab-modal">&times;</span>
-        <h2>Free Security+ Practice Labs</h2>
-        
-        <h3>Online Lab Platforms</h3>
-        <ul style="text-align:left;">
-          <li><a href="https://tryhackme.com/" target="_blank">TryHackMe (Free Rooms)</a></li>
-          <li><a href="https://www.hackthebox.com/" target="_blank">Hack The Box (Free Tier)</a></li>
-          <li><a href="https://www.cybrary.it/catalog/cyber-security/compTIA-security-plus/" target="_blank">Cybrary Security+ Labs</a></li>
-          <li><a href="https://www.immersivelabs.com/" target="_blank">Immersive Labs (Free Labs)</a></li>
-          <li><a href="https://www.netacad.com/courses/cybersecurity" target="_blank">Cisco NetAcad Cybersecurity Labs</a></li>
-        </ul>
+            <div class="form-group">
+              <label for="profile-email"><i class="fas fa-envelope"></i> Email/Username</label>
+              <input type="text" id="profile-email" name="email" disabled />
+            </div>
+            <div class="form-group">
+              <label for="profile-password"><i class="fas fa-lock"></i> Password</label>
+              <input type="password" id="profile-password" name="password" placeholder="Leave blank to keep current"/>
+            </div>
+            <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Changes</button>
+            <div id="profile-error" class="auth-error"></div>
+          </form>
+        </article>
 
-        <h3>Downloadable Lab Software</h3>
-        <ul style="text-align:left;">
-          <li>
-            <a href="https://www.virtualbox.org/" target="_blank">VirtualBox</a> - Free virtualization software to run security labs
-            <p class="lab-desc">Create your own virtual machines for hands-on practice</p>
-          </li>
-          <li>
-            <a href="https://www.kali.org/get-kali/" target="_blank">Kali Linux</a> - Pre-configured security testing environment
-            <p class="lab-desc">Includes hundreds of security tools for practice</p>
-          </li>
-          <li>
-            <a href="https://www.metasploit.com/download" target="_blank">Metasploit Framework</a> - Penetration testing platform
-            <p class="lab-desc">Practice security testing in a controlled environment</p>
-          </li>
-          <li>
-            <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker</a> - Container platform for security labs
-            <p class="lab-desc">Run isolated security labs in containers</p>
-          </li>
-          <li>
-            <a href="https://www.wireshark.org/download.html" target="_blank">Wireshark</a> - Network protocol analyzer
-            <p class="lab-desc">Practice network security analysis</p>
-          </li>
-        </ul>
+        <!-- Notes Section -->
+        <article class="profile-card">
+          <h3><i class="fas fa-sticky-note"></i> My Notes</h3>
+          <div class="notes-container">
+            <textarea id="user-notes" rows="6" placeholder="Write or paste your notes here..."></textarea>
+            <button id="save-notes" class="save-btn"><i class="fas fa-save"></i> Save Notes</button>
+            <div id="notes-status" class="status-message"></div>
+          </div>
+        </article>
 
-        <h3>Pre-built Lab Environments</h3>
-        <ul style="text-align:left;">
-          <li>
-            <a href="https://www.vulnhub.com/" target="_blank">VulnHub</a> - Free vulnerable machines
-            <p class="lab-desc">Download and practice on intentionally vulnerable systems</p>
-          </li>
-          <li>
-            <a href="https://github.com/rapid7/metasploitable3" target="_blank">Metasploitable</a> - Vulnerable virtual machine
-            <p class="lab-desc">Practice security testing on a deliberately vulnerable system</p>
-          </li>
-          <li>
-            <a href="https://www.damnvulnerablewebapp.org/" target="_blank">DVWA</a> - Damn Vulnerable Web Application
-            <p class="lab-desc">Practice web application security testing</p>
-          </li>
-        </ul>
+        <!-- Lab Section -->
+        <article class="profile-card">
+          <h3><i class="fas fa-code"></i> Practice Lab / Code</h3>
+          <div class="lab-container">
+            <textarea id="user-lab" rows="6" placeholder="Write or paste your practice code/lab notes here..."></textarea>
+            <div class="lab-buttons">
+              <button id="save-lab" class="save-btn"><i class="fas fa-save"></i> Save Lab Notes</button>
+              <button id="get-free-lab" class="lab-btn"><i class="fas fa-flask"></i> Get Free Lab to Practice</button>
+            </div>
+            <div id="lab-status" class="status-message"></div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <h3>Online Kali Linux Labs</h3>
-        <ul style="text-align:left;">
-          <li>
-            <a href="https://tryhackme.com/room/kalilinux" target="_blank">TryHackMe: Kali Linux Playground</a>
-            <p class="lab-desc">Launch a Kali Linux instance in your browser and complete guided labs. Free tier available.</p>
-          </li>
-          <li>
-            <a href="https://www.katacoda.com/courses/linux/playground" target="_blank">Katacoda: Linux Playground</a>
-            <p class="lab-desc">Spin up a Linux (Ubuntu/Kali) terminal in your browser for practice. No install needed.</p>
-          </li>
-          <li>
-            <a href="https://labs.hackthebox.com/" target="_blank">Hack The Box Academy: Kali Playground</a>
-            <p class="lab-desc">Browser-based Kali Linux VMs for hands-on security labs (free and paid labs).</p>
-          </li>
-        </ul>
+    <div class="back-home">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </main>
 
-        <div class="launch-kali-section" style="text-align:center;margin:2.5rem 0 2rem 0;">
-          <h3 style="color:#e74c3c;"><i class="fab fa-linux"></i> Launch a Kali Linux Instance</h3>
-          <p style="margin-bottom:1.2rem;">Start a Kali Linux environment instantly in your browser for hands-on security practice.</p>
-          <a href="https://tryhackme.com/room/kalilinux" target="_blank" class="launch-kali-btn">
-            <i class="fab fa-linux"></i> Launch Kali Linux Instance
-          </a>
-        </div>
-
-        <p class="lab-note">Note: Always practice in a controlled environment and never test systems without permission.</p>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Security+ Study Guide. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
       </div>
     </div>
+  </footer>
+
+  <!-- Modal for Free Labs -->
+  <div id="free-lab-modal" class="modal" role="dialog" aria-labelledby="freeLabTitle" style="display:none;">
+    <div class="modal-content">
+      <span class="close-modal" id="close-lab-modal" aria-label="Close">&times;</span>
+      <h2 id="freeLabTitle">Free Security+ Practice Labs</h2>
+
+      <section>
+        <h3>Online Lab Platforms</h3>
+        <ul>
+          <li><a href="https://tryhackme.com/" target="_blank" rel="noopener">TryHackMe (Free Rooms)</a></li>
+          <li><a href="https://www.hackthebox.com/" target="_blank" rel="noopener">Hack The Box (Free Tier)</a></li>
+          <li><a href="https://www.cybrary.it/catalog/cyber-security/compTIA-security-plus/" target="_blank" rel="noopener">Cybrary Security+ Labs</a></li>
+          <li><a href="https://www.immersivelabs.com/" target="_blank" rel="noopener">Immersive Labs</a></li>
+          <li><a href="https://www.netacad.com/courses/cybersecurity" target="_blank" rel="noopener">Cisco NetAcad</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Downloadable Lab Software</h3>
+        <ul>
+          <li><a href="https://www.virtualbox.org/" target="_blank">VirtualBox</a> – Virtual machines for labs</li>
+          <li><a href="https://www.kali.org/get-kali/" target="_blank">Kali Linux</a> – Security testing OS</li>
+          <li><a href="https://www.metasploit.com/download" target="_blank">Metasploit</a> – Penetration testing tool</li>
+          <li><a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker</a> – Isolated containers</li>
+          <li><a href="https://www.wireshark.org/download.html" target="_blank">Wireshark</a> – Network analysis</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Pre-built Lab Environments</h3>
+        <ul>
+          <li><a href="https://www.vulnhub.com/" target="_blank">VulnHub</a> – Vulnerable systems</li>
+          <li><a href="https://github.com/rapid7/metasploitable3" target="_blank">Metasploitable</a></li>
+          <li><a href="https://www.damnvulnerablewebapp.org/" target="_blank">DVWA</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Online Kali Linux Labs</h3>
+        <ul>
+          <li><a href="https://tryhackme.com/room/kalilinux" target="_blank">TryHackMe: Kali Playground</a></li>
+          <li><a href="https://www.katacoda.com/courses/linux/playground" target="_blank">Katacoda: Linux Playground</a></li>
+          <li><a href="https://labs.hackthebox.com/" target="_blank">HTB Academy: Kali Labs</a></li>
+        </ul>
+        <div class="launch-kali-section">
+          <h3><i class="fab fa-linux"></i> Launch a Kali Linux Instance</h3>
+          <p>Start Kali Linux instantly in your browser:</p>
+          <a href="https://tryhackme.com/room/kalilinux" target="_blank" class="launch-kali-btn"><i class="fab fa-linux"></i> Launch Kali Linux</a>
+        </div>
+      </section>
+
+      <p class="lab-note">⚠ Always practice in a safe, authorized environment.</p>
+    </div>
+  </div>
+
+  <script src="js/profile.js"></script>
 </body>
-</html> 
+</html>

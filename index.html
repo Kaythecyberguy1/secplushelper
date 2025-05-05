@@ -19,8 +19,10 @@
                 <li><a href="practice-questions.html">Practice Questions</a></li>
                 <li><a href="resources.html">Resources</a></li>
                 <li><a href="exam-tips.html">Exam Tips</a></li>
-                <li><a href="login.html" class="login-link">Login</a></li>
-                <li><a href="signup.html" class="signup-link">Sign Up</a></li>
+                <li id="nav-login"><a href="login.html" class="login-link">Login</a></li>
+                <li id="nav-signup"><a href="signup.html" class="signup-link">Sign Up</a></li>
+                <li id="nav-profile" style="display:none;"><a href="#" class="profile-link">Profile</a></li>
+                <li id="nav-logout" style="display:none;"><a href="#" class="logout-link">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -28,6 +30,7 @@
     <main>
         <section class="hero">
             <div class="hero-content">
+                <div id="welcome-message" style="display:none;"></div>
                 <h2>Master the Security+ SY0-701 Exam</h2>
                 <p>Your comprehensive guide to passing the CompTIA Security+ certification exam</p>
                 <div class="cta-buttons">
@@ -187,5 +190,8 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    // Navigation login/profile logic
+    function updateNavForAuth() {
 </body>
 </html> 

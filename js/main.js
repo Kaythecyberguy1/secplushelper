@@ -625,4 +625,44 @@ document.addEventListener('DOMContentLoaded', function () {
             card.classList.toggle('active');
         });
     });
+});
+
+// User session and nav logic
+function updateNavAndWelcome() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    const navLogin = document.getElementById('nav-login');
+    const navSignup = document.getElementById('nav-signup');
+    const navProfile = document.getElementById('nav-profile');
+    const navLogout = document.getElementById('nav-logout');
+    const welcomeMsg = document.getElementById('welcome-message');
+    if (loggedInUser) {
+        if (navLogin) navLogin.style.display = 'none';
+        if (navSignup) navSignup.style.display = 'none';
+        if (navProfile) navProfile.style.display = '';
+        if (navLogout) navLogout.style.display = '';
+        if (welcomeMsg) {
+            welcomeMsg.style.display = '';
+            welcomeMsg.textContent = `Welcome, ${loggedInUser}!`;
+        }
+    } else {
+        if (navLogin) navLogin.style.display = '';
+        if (navSignup) navSignup.style.display = '';
+        if (navProfile) navProfile.style.display = 'none';
+        if (navLogout) navLogout.style.display = 'none';
+        if (welcomeMsg) welcomeMsg.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateNavAndWelcome();
+    // Logout logic
+    const navLogout = document.getElementById('nav-logout');
+    if (navLogout) {
+        navLogout.addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.removeItem('loggedInUser');
+            updateNavAndWelcome();
+            window.location.reload();
+        });
+    }
 }); 

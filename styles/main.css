@@ -851,4 +851,160 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
+}
+
+/* Study Materials Page Styles */
+.materials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.materials-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.domain-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.domain-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.domain-header {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.domain-header:hover {
+    background: #e9ecef;
+}
+
+.domain-header h3 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.domain-header i {
+    color: #3498db;
+    transition: transform 0.3s ease;
+}
+
+.domain-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.domain-card.active .domain-content {
+    padding: 1.5rem;
+    max-height: 2000px;
+}
+
+.domain-card.active .domain-header i {
+    transform: rotate(180deg);
+}
+
+.topic-section {
+    margin-bottom: 2rem;
+}
+
+.topic-section h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.topic-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.topic-section li {
+    padding: 0.5rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.topic-section li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.notes-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.note-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.note-card h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.note-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.note-card li {
+    padding: 0.5rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.note-card li:before {
+    content: "→";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .materials-container {
+        padding: 1rem;
+    }
+
+    .domain-header {
+        padding: 1rem;
+    }
+
+    .domain-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .notes-section {
+        grid-template-columns: 1fr;
+    }
 } 

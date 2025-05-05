@@ -391,4 +391,25 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStreakDisplay();
     updateQuestionsProgress();
     updateExamPrediction();
+});
+
+// Study Materials Accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const domainCards = document.querySelectorAll('.domain-card');
+    
+    domainCards.forEach(card => {
+        const header = card.querySelector('.domain-header');
+        
+        header.addEventListener('click', () => {
+            // Close all other cards
+            domainCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('active');
+                }
+            });
+            
+            // Toggle current card
+            card.classList.toggle('active');
+        });
+    });
 }); 

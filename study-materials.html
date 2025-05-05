@@ -25,27 +25,211 @@
 
     <main>
         <section class="study-materials">
-            <h2>Study Materials</h2>
-            <div class="materials-grid">
-                <div class="material-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Security Concepts</h3>
-                    <p>Learn fundamental security concepts and principles</p>
-                </div>
-                <div class="material-card">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Network Security</h3>
-                    <p>Understand network security implementation</p>
-                </div>
-                <div class="material-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Identity & Access</h3>
-                    <p>Master identity and access management</p>
-                </div>
-                <div class="material-card">
-                    <i class="fas fa-lock"></i>
-                    <h3>Cryptography</h3>
-                    <p>Learn about cryptographic concepts and implementations</p>
+            <div class="materials-container">
+                <h2>Security+ SY0-701 Study Materials</h2>
+                <p class="intro-text">Below are the official exam domains and their key topics. Click on each domain to expand and view detailed study materials.</p>
+
+                <div class="domain-accordion">
+                    <!-- Domain 1 -->
+                    <div class="domain-card">
+                        <div class="domain-header">
+                            <h3>Domain 1: General Security Concepts (12%)</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="domain-content">
+                            <div class="topic-section">
+                                <h4>Key Topics:</h4>
+                                <ul>
+                                    <li>Compare and contrast various types of security controls</li>
+                                    <li>Explain the importance of applicable regulations, standards, or frameworks</li>
+                                    <li>Explain the importance of policies to organizational security</li>
+                                    <li>Summarize risk management processes and concepts</li>
+                                </ul>
+                            </div>
+                            <div class="notes-section">
+                                <h4>Study Notes:</h4>
+                                <div class="note-card">
+                                    <h5>Security Controls</h5>
+                                    <ul>
+                                        <li>Preventive controls: Stop incidents from occurring</li>
+                                        <li>Detective controls: Identify incidents after they occur</li>
+                                        <li>Corrective controls: Restore systems after incidents</li>
+                                        <li>Deterrent controls: Discourage potential attackers</li>
+                                    </ul>
+                                </div>
+                                <div class="note-card">
+                                    <h5>Risk Management</h5>
+                                    <ul>
+                                        <li>Risk = Threat × Vulnerability × Impact</li>
+                                        <li>Risk assessment: Identify, analyze, and evaluate risks</li>
+                                        <li>Risk treatment: Accept, transfer, mitigate, or avoid</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 2 -->
+                    <div class="domain-card">
+                        <div class="domain-header">
+                            <h3>Domain 2: Threats, Vulnerabilities, and Mitigations (22%)</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="domain-content">
+                            <div class="topic-section">
+                                <h4>Key Topics:</h4>
+                                <ul>
+                                    <li>Compare and contrast common threat actors and motivations</li>
+                                    <li>Explain common threat vectors and attack surfaces</li>
+                                    <li>Explain various types of vulnerabilities</li>
+                                    <li>Given a scenario, analyze indicators of malicious activity</li>
+                                </ul>
+                            </div>
+                            <div class="notes-section">
+                                <h4>Study Notes:</h4>
+                                <div class="note-card">
+                                    <h5>Threat Actors</h5>
+                                    <ul>
+                                        <li>Nation-state actors: Government-sponsored attacks</li>
+                                        <li>Hacktivists: Attack for political or social causes</li>
+                                        <li>Organized crime: Attack for financial gain</li>
+                                        <li>Script kiddies: Use existing tools without deep knowledge</li>
+                                    </ul>
+                                </div>
+                                <div class="note-card">
+                                    <h5>Common Attack Vectors</h5>
+                                    <ul>
+                                        <li>Email phishing and spear phishing</li>
+                                        <li>Malware and ransomware</li>
+                                        <li>Social engineering attacks</li>
+                                        <li>Zero-day exploits</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 3 -->
+                    <div class="domain-card">
+                        <div class="domain-header">
+                            <h3>Domain 3: Security Architecture (18%)</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="domain-content">
+                            <div class="topic-section">
+                                <h4>Key Topics:</h4>
+                                <ul>
+                                    <li>Compare and contrast security implications of different architecture models</li>
+                                    <li>Given a scenario, implement secure network architecture concepts</li>
+                                    <li>Given a scenario, implement secure systems design</li>
+                                    <li>Explain the importance of secure staging deployment concepts</li>
+                                </ul>
+                            </div>
+                            <div class="notes-section">
+                                <h4>Study Notes:</h4>
+                                <div class="note-card">
+                                    <h5>Network Security</h5>
+                                    <ul>
+                                        <li>Zero Trust Architecture principles</li>
+                                        <li>Defense in depth strategy</li>
+                                        <li>Network segmentation and micro-segmentation</li>
+                                        <li>Secure protocols and encryption</li>
+                                    </ul>
+                                </div>
+                                <div class="note-card">
+                                    <h5>Secure Systems Design</h5>
+                                    <ul>
+                                        <li>Least privilege principle</li>
+                                        <li>Secure defaults</li>
+                                        <li>Fail secure/fail safe</li>
+                                        <li>Separation of duties</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 4 -->
+                    <div class="domain-card">
+                        <div class="domain-header">
+                            <h3>Domain 4: Security Operations (28%)</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="domain-content">
+                            <div class="topic-section">
+                                <h4>Key Topics:</h4>
+                                <ul>
+                                    <li>Given a scenario, implement security monitoring</li>
+                                    <li>Given a scenario, implement incident response procedures</li>
+                                    <li>Given a scenario, implement vulnerability management</li>
+                                    <li>Explain the importance of automation and orchestration</li>
+                                </ul>
+                            </div>
+                            <div class="notes-section">
+                                <h4>Study Notes:</h4>
+                                <div class="note-card">
+                                    <h5>Security Monitoring</h5>
+                                    <ul>
+                                        <li>SIEM systems and log analysis</li>
+                                        <li>Network monitoring tools</li>
+                                        <li>Endpoint detection and response (EDR)</li>
+                                        <li>Security information and event management</li>
+                                    </ul>
+                                </div>
+                                <div class="note-card">
+                                    <h5>Incident Response</h5>
+                                    <ul>
+                                        <li>Preparation phase</li>
+                                        <li>Identification phase</li>
+                                        <li>Containment phase</li>
+                                        <li>Eradication phase</li>
+                                        <li>Recovery phase</li>
+                                        <li>Lessons learned phase</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 5 -->
+                    <div class="domain-card">
+                        <div class="domain-header">
+                            <h3>Domain 5: Security Program Management and Oversight (20%)</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="domain-content">
+                            <div class="topic-section">
+                                <h4>Key Topics:</h4>
+                                <ul>
+                                    <li>Given a scenario, implement security awareness practices</li>
+                                    <li>Explain the importance of policies, plans, and procedures</li>
+                                    <li>Given a scenario, implement security assessment activities</li>
+                                    <li>Explain the importance of third-party risk management</li>
+                                </ul>
+                            </div>
+                            <div class="notes-section">
+                                <h4>Study Notes:</h4>
+                                <div class="note-card">
+                                    <h5>Security Awareness</h5>
+                                    <ul>
+                                        <li>Phishing awareness training</li>
+                                        <li>Password security best practices</li>
+                                        <li>Social engineering awareness</li>
+                                        <li>Physical security awareness</li>
+                                    </ul>
+                                </div>
+                                <div class="note-card">
+                                    <h5>Security Assessment</h5>
+                                    <ul>
+                                        <li>Vulnerability scanning</li>
+                                        <li>Penetration testing</li>
+                                        <li>Security audits</li>
+                                        <li>Compliance assessments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

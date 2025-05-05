@@ -25,29 +25,72 @@
     </header>
     <main>
         <section class="profile-section">
-            <h2>My Profile</h2>
-            <form id="profileForm" class="profile-form">
-                <label for="profile-display">Display Name</label>
-                <input type="text" id="profile-display" name="display" required>
-                <label for="profile-email">Email/Username</label>
-                <input type="text" id="profile-email" name="email" required disabled>
-                <label for="profile-password">Password</label>
-                <input type="password" id="profile-password" name="password" placeholder="Leave blank to keep current">
-                <button type="submit">Save Changes</button>
-                <div id="profile-error" class="auth-error"></div>
-            </form>
-            <h3>My Notes</h3>
-            <textarea id="user-notes" rows="6" placeholder="Write or paste your notes here..."></textarea>
-            <button id="save-notes">Save Notes</button>
-            <div id="notes-status"></div>
-            <h3>Practice Lab / Code</h3>
-            <textarea id="user-lab" rows="6" placeholder="Write or paste your practice code/lab notes here..."></textarea>
-            <button id="save-lab">Save Lab Notes</button>
-            <button id="get-free-lab" type="button">Get Free Lab to Practice</button>
-            <div id="lab-status"></div>
+            <div class="profile-header">
+                <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-book"></i>
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">Notes</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-flask"></i>
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">Labs</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">Achievements</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-card">
+                    <h3><i class="fas fa-user-edit"></i> Account Settings</h3>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="profile-display"><i class="fas fa-user"></i> Display Name</label>
+                            <input type="text" id="profile-display" name="display" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-email"><i class="fas fa-envelope"></i> Email/Username</label>
+                            <input type="text" id="profile-email" name="email" required disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-password"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="profile-password" name="password" placeholder="Leave blank to keep current">
+                        </div>
+                        <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Changes</button>
+                        <div id="profile-error" class="auth-error"></div>
+                    </form>
+                </div>
+
+                <div class="profile-card">
+                    <h3><i class="fas fa-sticky-note"></i> My Notes</h3>
+                    <div class="notes-container">
+                        <textarea id="user-notes" rows="6" placeholder="Write or paste your notes here..."></textarea>
+                        <button id="save-notes" class="save-btn"><i class="fas fa-save"></i> Save Notes</button>
+                        <div id="notes-status" class="status-message"></div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3><i class="fas fa-code"></i> Practice Lab / Code</h3>
+                    <div class="lab-container">
+                        <textarea id="user-lab" rows="6" placeholder="Write or paste your practice code/lab notes here..."></textarea>
+                        <div class="lab-buttons">
+                            <button id="save-lab" class="save-btn"><i class="fas fa-save"></i> Save Lab Notes</button>
+                            <button id="get-free-lab" class="lab-btn"><i class="fas fa-flask"></i> Get Free Lab to Practice</button>
+                        </div>
+                        <div id="lab-status" class="status-message"></div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <div style="text-align:center;margin-top:2rem;">
-            <a href="index.html">&larr; Back to Home</a>
+        <div class="back-home">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
         </div>
     </main>
     <footer>

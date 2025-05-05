@@ -30,17 +30,17 @@
                 <div class="profile-stats">
                     <div class="stat-card">
                         <i class="fas fa-book"></i>
-                        <span class="stat-value">0</span>
+                        <span class="stat-value" id="notes-count">0</span>
                         <span class="stat-label">Notes</span>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-flask"></i>
-                        <span class="stat-value">0</span>
+                        <span class="stat-value" id="labs-count">0</span>
                         <span class="stat-label">Labs</span>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-trophy"></i>
-                        <span class="stat-value">0</span>
+                        <span class="stat-value" id="achievements-count">0</span>
                         <span class="stat-label">Achievements</span>
                     </div>
                 </div>
@@ -158,6 +158,30 @@
             <p class="lab-desc">Practice web application security testing</p>
           </li>
         </ul>
+
+        <h3>Online Kali Linux Labs</h3>
+        <ul style="text-align:left;">
+          <li>
+            <a href="https://tryhackme.com/room/kalilinux" target="_blank">TryHackMe: Kali Linux Playground</a>
+            <p class="lab-desc">Launch a Kali Linux instance in your browser and complete guided labs. Free tier available.</p>
+          </li>
+          <li>
+            <a href="https://www.katacoda.com/courses/linux/playground" target="_blank">Katacoda: Linux Playground</a>
+            <p class="lab-desc">Spin up a Linux (Ubuntu/Kali) terminal in your browser for practice. No install needed.</p>
+          </li>
+          <li>
+            <a href="https://labs.hackthebox.com/" target="_blank">Hack The Box Academy: Kali Playground</a>
+            <p class="lab-desc">Browser-based Kali Linux VMs for hands-on security labs (free and paid labs).</p>
+          </li>
+        </ul>
+
+        <div class="launch-kali-section" style="text-align:center;margin:2.5rem 0 2rem 0;">
+          <h3 style="color:#e74c3c;"><i class="fab fa-linux"></i> Launch a Kali Linux Instance</h3>
+          <p style="margin-bottom:1.2rem;">Start a Kali Linux environment instantly in your browser for hands-on security practice.</p>
+          <a href="https://tryhackme.com/room/kalilinux" target="_blank" class="launch-kali-btn">
+            <i class="fab fa-linux"></i> Launch Kali Linux Instance
+          </a>
+        </div>
 
         <p class="lab-note">Note: Always practice in a controlled environment and never test systems without permission.</p>
       </div>

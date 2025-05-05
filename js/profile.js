@@ -33,6 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Stat count elements
+    const notesCount = document.getElementById('notes-count');
+    const labsCount = document.getElementById('labs-count');
+    const achievementsCount = document.getElementById('achievements-count');
+
+    function updateCounts() {
+        // Count non-empty lines for notes and labs
+        const notesLines = (notesArea.value || '').split('\n').filter(line => line.trim() !== '').length;
+        const labsLines = (labArea.value || '').split('\n').filter(line => line.trim() !== '').length;
+        if (notesCount) notesCount.textContent = notesLines;
+        if (labsCount) labsCount.textContent = labsLines;
+        if (achievementsCount) achievementsCount.textContent = user.achievements ? user.achievements.length : 0;
+    }
+
     // Notes
     const notesArea = document.getElementById('user-notes');
     const saveNotesBtn = document.getElementById('save-notes');
@@ -44,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem(userKey, JSON.stringify(user));
             notesStatus.textContent = 'Notes saved!';
             setTimeout(() => notesStatus.textContent = '', 1500);
+            updateCounts();
         });
     }
 
@@ -58,8 +73,12 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem(userKey, JSON.stringify(user));
             labStatus.textContent = 'Lab notes saved!';
             setTimeout(() => labStatus.textContent = '', 1500);
+            updateCounts();
         });
     }
+
+    // Update counts on page load
+    updateCounts();
 
     // Free Lab Modal
     const getFreeLabBtn = document.getElementById('get-free-lab');

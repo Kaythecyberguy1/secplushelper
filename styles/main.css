@@ -38,6 +38,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
+    transition: max-height 0.3s;
 }
 
 .nav-links li {
@@ -1582,4 +1583,76 @@ footer {
 }
 .auth-section a:hover {
   color: #217dbb;
+}
+
+/* Responsive Navigation (Mobile) */
+.nav-links {
+  display: flex;
+  list-style: none;
+  transition: max-height 0.3s;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #3498db;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+@media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: #2c3e50;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1001;
+    border-radius: 0 0 10px 10px;
+  }
+  .nav-links.open {
+    max-height: 500px;
+    padding-bottom: 1rem;
+  }
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Responsive Hero Section */
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 1rem 0.5rem;
+  }
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  #welcome-message {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
 } 

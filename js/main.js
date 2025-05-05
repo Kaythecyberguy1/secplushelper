@@ -665,4 +665,18 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.reload();
         });
     }
+    // Hamburger menu logic
+    const hamburger = document.getElementById('hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function () {
+            navLinks.classList.toggle('open');
+        });
+        // Optional: close menu when a nav link is clicked (for better UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+    }
 }); 

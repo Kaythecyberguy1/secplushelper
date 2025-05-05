@@ -394,21 +394,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Study Materials Accordion
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const domainCards = document.querySelectorAll('.domain-card');
-    
     domainCards.forEach(card => {
         const header = card.querySelector('.domain-header');
-        
-        header.addEventListener('click', () => {
+        header.addEventListener('click', function () {
             // Close all other cards
-            domainCards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.classList.remove('active');
-                }
+            domainCards.forEach(c => {
+                if (c !== card) c.classList.remove('active');
             });
-            
-            // Toggle current card
+            // Toggle this card
             card.classList.toggle('active');
         });
     });

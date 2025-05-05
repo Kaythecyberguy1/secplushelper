@@ -60,4 +60,22 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => labStatus.textContent = '', 1500);
         });
     }
+
+    // Free Lab Modal
+    const getFreeLabBtn = document.getElementById('get-free-lab');
+    const freeLabModal = document.getElementById('free-lab-modal');
+    const closeLabModal = document.getElementById('close-lab-modal');
+    if (getFreeLabBtn && freeLabModal && closeLabModal) {
+        getFreeLabBtn.addEventListener('click', function () {
+            freeLabModal.style.display = 'block';
+        });
+        closeLabModal.addEventListener('click', function () {
+            freeLabModal.style.display = 'none';
+        });
+        window.addEventListener('click', function (event) {
+            if (event.target === freeLabModal) {
+                freeLabModal.style.display = 'none';
+            }
+        });
+    }
 }); 

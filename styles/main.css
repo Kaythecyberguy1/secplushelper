@@ -1655,4 +1655,96 @@ footer {
     flex-direction: column;
     gap: 0.7rem;
   }
+}
+
+/* Lab Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+.modal h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.modal h3 {
+    color: #3498db;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.2rem;
+}
+
+.modal ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.modal li {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-left: 3px solid #3498db;
+    background-color: #f8f9fa;
+}
+
+.modal li a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.modal li a:hover {
+    text-decoration: underline;
+}
+
+.lab-desc {
+    margin: 0.5rem 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.lab-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #fff3e0;
+    border-radius: 5px;
+    color: #f57c00;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% 1rem;
+        padding: 1.5rem;
+    }
 } 

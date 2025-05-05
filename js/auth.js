@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             errorDiv.textContent = '';
             localStorage.setItem('loggedInUser', email);
             alert('Login successful!');
-            window.location.href = 'index.html';
+            window.location.href = 'profile.html';
         });
     }
 }); 

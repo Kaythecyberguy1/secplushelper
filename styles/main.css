@@ -945,15 +945,17 @@ footer {
 }
 
 .domain-content {
-    padding: 0;
+    display: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 2rem;
 }
 
 .domain-card.active .domain-content {
-    padding: 1.5rem;
+    display: block;
     max-height: 2000px;
+    padding: 2rem;
 }
 
 .domain-card.active .domain-header i {
@@ -1306,4 +1308,69 @@ footer {
     .downloadable-resources .resource-details li {
         font-size: 0.9rem;
     }
+}
+
+/* Accordion domain content visibility */
+.domain-content {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 2rem;
+}
+.domain-card.active .domain-content {
+  display: block;
+  max-height: 2000px; /* Large enough for content */
+  padding: 2rem;
+}
+
+/* Optional: Animate chevron icon */
+.domain-card .fa-chevron-down {
+  transition: transform 0.3s;
+}
+.domain-card.active .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Domain Subnav Styles */
+.domain-subnav {
+  background: #e9ecef;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.domain-subnav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.domain-subnav li {
+  margin: 0;
+}
+.domain-subnav a {
+  color: #2c3e50;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+.domain-subnav a:hover, .domain-subnav a:focus {
+  background: #3498db;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .domain-subnav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .domain-subnav a {
+    width: 100%;
+    text-align: center;
+  }
 } 

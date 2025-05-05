@@ -23,7 +23,9 @@ const questions = [
             "C. Use MAC filtering",
             "D. Enable WEP encryption"
         ],
-        correctAnswer: 1 // Index of correct answer (B)
+        correctAnswer: 1,
+        category: "Network Security",
+        difficulty: "Medium"
     },
     {
         question: "What is the primary purpose of a honeypot?",
@@ -33,7 +35,105 @@ const questions = [
             "C. To encrypt sensitive data",
             "D. To authenticate users"
         ],
-        correctAnswer: 1 // Index of correct answer (B)
+        correctAnswer: 1,
+        category: "Threat Management",
+        difficulty: "Easy"
+    },
+    {
+        question: "Which of the following is a characteristic of a zero-day vulnerability?",
+        options: [
+            "A. It has been publicly disclosed for more than 30 days",
+            "B. It affects only legacy systems",
+            "C. It has no known patch or fix",
+            "D. It requires physical access to exploit"
+        ],
+        correctAnswer: 2,
+        category: "Vulnerability Management",
+        difficulty: "Medium"
+    },
+    {
+        question: "What is the primary purpose of a digital certificate?",
+        options: [
+            "A. To encrypt data in transit",
+            "B. To verify the identity of a user or system",
+            "C. To store private keys securely",
+            "D. To generate random numbers"
+        ],
+        correctAnswer: 1,
+        category: "Cryptography",
+        difficulty: "Easy"
+    },
+    {
+        question: "Which of the following is the MOST effective way to prevent SQL injection attacks?",
+        options: [
+            "A. Using input validation",
+            "B. Implementing parameterized queries",
+            "C. Disabling JavaScript",
+            "D. Using stored procedures"
+        ],
+        correctAnswer: 1,
+        category: "Application Security",
+        difficulty: "Hard"
+    },
+    {
+        question: "What is the purpose of a security baseline?",
+        options: [
+            "A. To establish minimum security requirements",
+            "B. To track security incidents",
+            "C. To document security policies",
+            "D. To measure network performance"
+        ],
+        correctAnswer: 0,
+        category: "Security Operations",
+        difficulty: "Easy"
+    },
+    {
+        question: "Which of the following is a characteristic of a secure password policy?",
+        options: [
+            "A. Maximum length of 8 characters",
+            "B. No special characters required",
+            "C. Regular password rotation",
+            "D. Allowing common dictionary words"
+        ],
+        correctAnswer: 2,
+        category: "Identity and Access Management",
+        difficulty: "Medium"
+    },
+    {
+        question: "What is the primary purpose of a SIEM system?",
+        options: [
+            "A. To block malicious traffic",
+            "B. To aggregate and analyze security logs",
+            "C. To encrypt network traffic",
+            "D. To manage user permissions"
+        ],
+        correctAnswer: 1,
+        category: "Security Operations",
+        difficulty: "Medium"
+    },
+    {
+        question: "Which of the following is a characteristic of a secure coding practice?",
+        options: [
+            "A. Using hardcoded credentials",
+            "B. Implementing proper error handling",
+            "C. Storing sensitive data in plaintext",
+            "D. Using deprecated functions"
+        ],
+        correctAnswer: 1,
+        category: "Application Security",
+        difficulty: "Medium"
+    },
+    {
+        question: "What is the purpose of a security assessment?",
+        options: [
+            "A. To identify vulnerabilities in a system",
+            "B. To implement security controls",
+            "C. To monitor network traffic",
+            "D. To create security policies"
+        ],
+        correctAnswer: 0,
+        category: "Security Assessment",
+        difficulty: "Easy"
     }
 ];
 
@@ -43,16 +143,26 @@ let selectedOption = null;
 // Function to display current question
 function displayQuestion() {
     const question = questions[currentQuestion];
-    questionContainer.querySelector('h3').textContent = `Question ${currentQuestion + 1}`;
-    questionContainer.querySelector('p').textContent = question.question;
+    const questionContainer = document.querySelector('.question-container');
     
+    // Update question header
+    questionContainer.querySelector('.question-number').textContent = `Question ${currentQuestion + 1}`;
+    questionContainer.querySelector('.question-category').textContent = question.category;
+    questionContainer.querySelector('.question-difficulty').textContent = question.difficulty;
+    
+    // Update question content
+    questionContainer.querySelector('.question-content h3').textContent = question.question;
+    
+    // Update options
+    const options = questionContainer.querySelectorAll('.option');
     options.forEach((option, index) => {
-        option.textContent = question.options[index];
+        option.querySelector('.option-text').textContent = question.options[index];
+        option.dataset.correct = (index === question.correctAnswer).toString();
         option.classList.remove('selected', 'correct', 'incorrect');
     });
     
-    selectedOption = null;
-    submitButton.disabled = true;
+    // Reset submit button
+    questionContainer.querySelector('.submit-answer').disabled = true;
 }
 
 // Add click event listeners to options
@@ -276,7 +386,9 @@ document.querySelectorAll('.answer-option').forEach(option => {
 });
 
 // Initialize displays
-updateScoreDisplay();
-updateStreakDisplay();
-updateQuestionsProgress();
-updateExamPrediction(); 
+document.addEventListener('DOMContentLoaded', () => {
+    updateScoreDisplay();
+    updateStreakDisplay();
+    updateQuestionsProgress();
+    updateExamPrediction();
+}); 

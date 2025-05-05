@@ -1422,4 +1422,100 @@ footer {
   display: block !important;
   max-height: none;
   padding: 2rem 0;
+}
+
+/* Domain Section Content Styles */
+.domain-section {
+  max-width: 900px;
+  margin: 4rem auto 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(44,62,80,0.07);
+  padding: 2.5rem 2rem;
+}
+.domain-section h2 {
+  color: #3498db;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.domain-section .domain-desc {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.domain-section h3 {
+  color: #2c3e50;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-left: 4px solid #3498db;
+  padding-left: 0.7rem;
+}
+.domain-section ul, .domain-section ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.domain-section ul li, .domain-section ol li {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+.domain-section ul li strong {
+  color: #3498db;
+}
+.domain-section em {
+  color: #888;
+  font-size: 0.97em;
+}
+.domain-section pre {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  color: #222;
+}
+.domain-section .practice-questions {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.domain-section .practice-questions li {
+  margin-bottom: 1rem;
+}
+.domain-section .downloadable-resources {
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+.domain-section .downloadable-resources a {
+  color: #3498db;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.domain-section .downloadable-resources a:hover {
+  color: #217dbb;
+}
+.domain-section .back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.domain-section .back-link:hover {
+  color: #217dbb;
+}
+@media (max-width: 600px) {
+  .domain-section {
+    padding: 1.2rem 0.5rem;
+  }
+  .domain-section h2 {
+    font-size: 1.1rem;
+  }
 } 

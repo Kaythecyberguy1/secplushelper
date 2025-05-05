@@ -1373,4 +1373,46 @@ footer {
     width: 100%;
     text-align: center;
   }
+}
+
+/* Domains Navigation Grid Styles */
+.domains-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+.domain-nav-card {
+  display: block;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(44,62,80,0.07);
+  padding: 2rem 1.5rem;
+  text-decoration: none;
+  color: #2c3e50;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  border-left: 5px solid #3498db;
+}
+.domain-nav-card:hover {
+  background: #e3f2fd;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(44,62,80,0.12);
+}
+.domain-nav-card h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+  color: #3498db;
+}
+.domain-nav-card p {
+  color: #555;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .domains-nav-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .domain-nav-card {
+    padding: 1.2rem 1rem;
+  }
 } 

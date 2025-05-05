@@ -134,6 +134,214 @@ const questions = [
         correctAnswer: 0,
         category: "Security Assessment",
         difficulty: "Easy"
+    },
+    {
+        question: "A company has hired a third-party to gather information about the company's servers and data. This third-party will not have direct access to the company's internal network, but they can gather information from any other source. Which of the following would BEST describe this approach?",
+        options: [
+            "A. Vulnerability scanning",
+            "B. Passive reconnaissance",
+            "C. Supply chain analysis",
+            "D. Regulatory audit"
+        ],
+        correctAnswer: 1,
+        category: "Threats & Reconnaissance",
+        difficulty: "Medium",
+        explanation: "Passive reconnaissance involves gathering information about a target without direct interaction, often using publicly available sources. This matches the scenario described."
+    },
+    {
+        question: "A company is installing a new application in a public cloud. Which of the following determines the assignment of data security in this cloud infrastructure?",
+        options: [
+            "A. Playbook",
+            "B. Audit committee",
+            "C. Responsibility matrix",
+            "D. Right-to-audit clause"
+        ],
+        correctAnswer: 2,
+        category: "Cloud Security",
+        difficulty: "Medium",
+        explanation: "A responsibility matrix (such as a RACI chart) defines roles and responsibilities, including data security assignments in cloud environments."
+    },
+    {
+        question: "When decommissioning a device, a company documents the type and size of storage drive, the amount of RAM, and any installed adapter cards. Which of the following describes this process?",
+        options: [
+            "A. Destruction",
+            "B. Sanitization",
+            "C. Certification",
+            "D. Enumeration"
+        ],
+        correctAnswer: 3,
+        category: "Asset Management",
+        difficulty: "Easy",
+        explanation: "Enumeration is the process of listing and documenting hardware and components before decommissioning."
+    },
+    {
+        question: "An attacker has sent more information than expected in a single API call, and this has allowed the execution of arbitrary code. Which of the following would BEST describe this attack?",
+        options: [
+            "A. Buffer overflow",
+            "B. Replay attack",
+            "C. Cross-site scripting",
+            "D. DDoS"
+        ],
+        correctAnswer: 0,
+        category: "Application Security",
+        difficulty: "Medium",
+        explanation: "A buffer overflow occurs when more data is sent than a buffer can handle, potentially allowing arbitrary code execution."
+    },
+    {
+        question: "A company encourages users to encrypt all of their confidential materials on a central server. The organization would like to enable key escrow as a backup option. Which of these keys should the organization place into escrow?",
+        options: [
+            "A. Private",
+            "B. CA",
+            "C. Session",
+            "D. Public"
+        ],
+        correctAnswer: 0,
+        category: "Cryptography",
+        difficulty: "Medium",
+        explanation: "Private keys are placed in escrow to allow recovery if the original is lost."
+    },
+    {
+        question: "A company is in the process of configuring and enabling host-based firewalls on all user devices. Which of the following threats is the company addressing?",
+        options: [
+            "A. Default credentials",
+            "B. Vishing",
+            "C. Instant messaging",
+            "D. On-path"
+        ],
+        correctAnswer: 3,
+        category: "Network Security",
+        difficulty: "Easy",
+        explanation: "Host-based firewalls help prevent on-path (man-in-the-middle) attacks by controlling network traffic."
+    },
+    {
+        question: "A manufacturing company would like to use an existing router to separate a corporate network from a manufacturing floor. Both networks use the same physical switch, and the company does not want to install any additional hardware. Which of the following would be the BEST choice for this segmentation?",
+        options: [
+            "A. Connect the corporate network and the manufacturing floor with a VPN",
+            "B. Build an air gapped manufacturing floor network",
+            "C. Use host-based firewalls on each device",
+            "D. Create separate VLANs for the corporate network and the manufacturing floor"
+        ],
+        correctAnswer: 3,
+        category: "Network Segmentation",
+        difficulty: "Medium",
+        explanation: "VLANs allow logical separation of networks using the same physical hardware."
+    },
+    {
+        question: "An organization needs to provide a remote access solution for a newly deployed cloud-based application. This application is designed to be used by mobile field service technicians. Which of the following would be the best option for this requirement?",
+        options: [
+            "A. RTOS",
+            "B. CRL",
+            "C. Zero-trust",
+            "D. SASE"
+        ],
+        correctAnswer: 3,
+        category: "Cloud Security",
+        difficulty: "Medium",
+        explanation: "SASE (Secure Access Service Edge) is designed for secure remote access to cloud applications."
+    },
+    {
+        question: "A company is implementing a quarterly security awareness campaign. Which of the following would MOST likely be part of this campaign?",
+        options: [
+            "A. Suspicious message reports from users",
+            "B. An itemized statement of work",
+            "C. An IaC configuration file",
+            "D. An acceptable use policy document"
+        ],
+        correctAnswer: 3,
+        category: "Security Awareness",
+        difficulty: "Easy",
+        explanation: "Acceptable use policy documents are commonly distributed during security awareness campaigns."
+    },
+    {
+        question: "A recent report shows the return of a vulnerability that was previously patched four months ago. After researching this issue, the security team has found a recent patch has reintroduced this vulnerability on the servers. Which of the following should the security administrator implement to prevent this issue from occurring in the future?",
+        options: [
+            "A. Containerization",
+            "B. Data masking",
+            "C. 802.1X",
+            "D. Change management"
+        ],
+        correctAnswer: 3,
+        category: "Change Management",
+        difficulty: "Medium",
+        explanation: "Change management ensures that changes are tracked and tested to prevent reintroducing vulnerabilities."
+    },
+    {
+        question: "A security manager would like to ensure that unique hashes are used with an application login process. Which of the following would be the BEST way to add random data when generating a set of stored password hashes?",
+        options: [
+            "A. Salting",
+            "B. Obfuscation",
+            "C. Key stretching",
+            "D. Digital signature"
+        ],
+        correctAnswer: 0,
+        category: "Authentication",
+        difficulty: "Easy",
+        explanation: "Salting adds random data to passwords before hashing to ensure uniqueness."
+    },
+    {
+        question: "Which cryptographic method is used to add trust to a digital certificate?",
+        options: [
+            "A. Steganography",
+            "B. Hash",
+            "C. Symmetric encryption",
+            "D. Digital signature"
+        ],
+        correctAnswer: 3,
+        category: "Cryptography",
+        difficulty: "Easy",
+        explanation: "Digital signatures are used to verify the authenticity and integrity of digital certificates."
+    },
+    {
+        question: "A company is using SCAP as part of their security monitoring processes. Which of the following would BEST describe this implementation?",
+        options: [
+            "A. Train the user community to better identify phishing attempts",
+            "B. Present the results of an internal audit to the board",
+            "C. Automate the validation and patching of security issues",
+            "D. Identify and document authorized data center visitors"
+        ],
+        correctAnswer: 2,
+        category: "Security Automation",
+        difficulty: "Medium",
+        explanation: "SCAP (Security Content Automation Protocol) is used to automate validation and patching of security issues."
+    },
+    {
+        question: "An organization maintains a large database of customer information for sales tracking and customer support. Which person in the organization would be responsible for managing the access rights to this data?",
+        options: [
+            "A. Data processor",
+            "B. Data owner",
+            "C. Data subject",
+            "D. Data custodian"
+        ],
+        correctAnswer: 1,
+        category: "Data Governance",
+        difficulty: "Easy",
+        explanation: "The data owner is responsible for managing access rights to data."
+    },
+    {
+        question: "An organization's content management system currently labels files and documents as \"Public\" and \"Restricted.\" On a recent update, a new classification type of \"Private\" was added. Which of the following would be the MOST likely reason for this addition?",
+        options: [
+            "A. Minimized attack surface",
+            "B. Simplified categorization",
+            "C. Expanded privacy compliance",
+            "D. Decreased search time"
+        ],
+        correctAnswer: 2,
+        category: "Data Classification",
+        difficulty: "Medium",
+        explanation: "Adding a 'Private' classification is likely to expand privacy compliance."
+    },
+    {
+        question: "A corporate security team would like to consolidate and protect the private keys across all of their web servers. Which of these would be the BEST way to securely store these keys?",
+        options: [
+            "A. Integrate an HSM",
+            "B. Implement full disk encryption on the web servers",
+            "C. Use a TPM",
+            "D. Upgrade the web servers to use a UEFI BIOS"
+        ],
+        correctAnswer: 0,
+        category: "Cryptography",
+        difficulty: "Medium",
+        explanation: "A Hardware Security Module (HSM) is designed to securely store and manage cryptographic keys."
     }
 ];
 

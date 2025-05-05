@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Security+ SY0-701</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Security+ SY0-701</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="study-materials.html">Study Materials</a></li>
+                <li><a href="practice-questions.html">Practice Questions</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="exam-tips.html">Exam Tips</a></li>
+                <li id="nav-logout"><a href="#" class="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile-section">
+            <h2>My Profile</h2>
+            <form id="profileForm" class="profile-form">
+                <label for="profile-display">Display Name</label>
+                <input type="text" id="profile-display" name="display" required>
+                <label for="profile-email">Email/Username</label>
+                <input type="text" id="profile-email" name="email" required disabled>
+                <label for="profile-password">Password</label>
+                <input type="password" id="profile-password" name="password" placeholder="Leave blank to keep current">
+                <button type="submit">Save Changes</button>
+                <div id="profile-error" class="auth-error"></div>
+            </form>
+            <h3>My Notes</h3>
+            <textarea id="user-notes" rows="6" placeholder="Write or paste your notes here..."></textarea>
+            <button id="save-notes">Save Notes</button>
+            <div id="notes-status"></div>
+            <h3>Practice Lab / Code</h3>
+            <textarea id="user-lab" rows="6" placeholder="Write or paste your practice code/lab notes here..."></textarea>
+            <button id="save-lab">Save Lab Notes</button>
+            <div id="lab-status"></div>
+        </section>
+        <div style="text-align:center;margin-top:2rem;">
+            <a href="index.html">&larr; Back to Home</a>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Security+ Study Guide. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/profile.js"></script>
+</body>
+</html> 

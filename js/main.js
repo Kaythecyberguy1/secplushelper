@@ -672,11 +672,25 @@ document.addEventListener('DOMContentLoaded', function () {
         hamburger.addEventListener('click', function () {
             navLinks.classList.toggle('open');
         });
-        // Optional: close menu when a nav link is clicked (for better UX)
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
             });
         });
+    }
+    // Profile link logic
+    const navProfile = document.getElementById('nav-profile');
+    if (navProfile) {
+        navProfile.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = 'profile.html';
+        });
+    }
+    // Redirect from profile.html if not logged in
+    if (window.location.pathname.endsWith('profile.html')) {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+            window.location.href = 'login.html';
+        }
     }
 }); 

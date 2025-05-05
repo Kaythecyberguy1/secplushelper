@@ -1415,4 +1415,11 @@ footer {
   .domain-nav-card {
     padding: 1.2rem 1rem;
   }
+}
+
+/* Always show domain content on dedicated domain pages */
+.domain-section .domain-content {
+  display: block !important;
+  max-height: none;
+  padding: 2rem 0;
 } 

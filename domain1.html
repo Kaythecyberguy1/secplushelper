@@ -27,7 +27,6 @@
             <h2>Domain 1: General Security Concepts (12%)</h2>
             <p class="domain-desc">This domain covers foundational security concepts, including the CIA triad, risk management, security controls, and key regulations and standards.</p>
             <div class="domain-content">
-                <!-- Add detailed content, notes, and resources here -->
                 <h3>Key Topics</h3>
                 <ul>
                     <li>CIA Triad (Confidentiality, Integrity, Availability)</li>
@@ -36,18 +35,60 @@
                     <li>Applicable Regulations and Standards (ISO 27001, NIST, GDPR)</li>
                     <li>Security Policies and Procedures</li>
                 </ul>
-                <h3>Study Notes</h3>
+                <h3>Expanded Explanations</h3>
                 <ul>
-                    <li><strong>Confidentiality:</strong> Ensuring only authorized users have access to information.</li>
-                    <li><strong>Integrity:</strong> Protecting information from unauthorized modification.</li>
-                    <li><strong>Availability:</strong> Ensuring information and resources are accessible when needed.</li>
-                    <li><strong>Risk Assessment:</strong> Identifying and evaluating risks to assets.</li>
-                    <li><strong>Security Controls:</strong> Implementing measures to mitigate risks.</li>
+                    <li><strong>CIA Triad:</strong> The foundation of information security. <br>
+                        <ul>
+                            <li><strong>Confidentiality:</strong> Protecting information from unauthorized access. <br> <em>Example:</em> Using encryption for sensitive emails.</li>
+                            <li><strong>Integrity:</strong> Ensuring data is accurate and unaltered. <br> <em>Example:</em> File checksums or digital signatures.</li>
+                            <li><strong>Availability:</strong> Ensuring resources are accessible when needed. <br> <em>Example:</em> Redundant servers to prevent downtime.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Security Controls:</strong> Measures to reduce risk. <br>
+                        <ul>
+                            <li><strong>Preventive:</strong> Firewalls, access controls</li>
+                            <li><strong>Detective:</strong> IDS, security audits</li>
+                            <li><strong>Corrective:</strong> Backups, patching</li>
+                            <li><strong>Deterrent:</strong> Warning signs, security training</li>
+                        </ul>
+                    </li>
+                    <li><strong>Risk Management:</strong> Identifying, assessing, and mitigating risks. <br>
+                        <em>Best Practice:</em> Perform regular risk assessments and update controls as needed.</li>
+                    <li><strong>Regulations & Standards:</strong> Frameworks for compliance and best practices. <br>
+                        <em>Example:</em> GDPR for privacy, ISO 27001 for ISMS, NIST for federal systems.</li>
+                    <li><strong>Policies & Procedures:</strong> Written rules and guidelines for security. <br>
+                        <em>Example:</em> Acceptable Use Policy, Incident Response Plan.</li>
                 </ul>
-                <h3>Resources</h3>
+                <h3>Real-World Scenario</h3>
+                <p><strong>Scenario:</strong> A hospital uses encryption (confidentiality), digital signatures (integrity), and backup generators (availability) to protect patient data and ensure operations during a power outage.</p>
+                <h3>Visual Diagram</h3>
+                <pre style="background:#f8f9fa;padding:1rem;border-radius:8px;overflow-x:auto;">
+   +-------------------+
+   |   Confidentiality |
+   +-------------------+
+            ^
+            |
++-----------+-----------+
+|                       |
+V                       V
+Integrity         Availability
+</pre>
+                <h3>Practice Questions</h3>
+                <ol>
+                    <li>Which part of the CIA triad is impacted if a server crash makes a website unavailable?
+                        <br><strong>Answer:</strong> Availability
+                    </li>
+                    <li>What type of control is a security camera?
+                        <br><strong>Answer:</strong> Detective (and Deterrent)
+                    </li>
+                    <li>Which regulation focuses on data privacy for EU citizens?
+                        <br><strong>Answer:</strong> GDPR
+                    </li>
+                </ol>
+                <h3>Downloadable Resources</h3>
                 <ul>
-                    <li><a href="https://www.nist.gov/publications/guide-general-security-controls">NIST Guide to General Security Controls</a></li>
-                    <li><a href="https://www.iso.org/isoiec-27001-information-security.html">ISO/IEC 27001 Standard</a></li>
+                    <li><a href="Resources/comptia-security+cheatsheet.pdf" download>Security+ Domain 1 Cheatsheet (PDF)</a></li>
+                    <li><a href="Resources/CompTIA+Security++(SY0-701)+Study+Guide-2.pdf" download>Official Study Guide (PDF)</a></li>
                 </ul>
             </div>
             <a href="study-materials.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Study Materials</a>

@@ -1,188 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Security+ Practice Exam Tracker</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
       padding: 20px;
+      max-width: 700px;
+      margin: auto;
     }
-    h1, h2 {
+    h1 {
+      color: #333;
       text-align: center;
-      color: #00796b;
     }
-    table {
+    input, textarea, button, select {
       width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-    th, td {
       padding: 10px;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-    th {
-      background-color: #00796b;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background-color: #f1f8e9;
-    }
-    input[type="text"], input[type="number"], input[type="date"] {
-      width: 100%;
-      padding: 8px;
+      margin: 8px 0;
       box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 5px;
     }
     button {
-      padding: 10px 20px;
-      background-color: #43a047;
+      background-color: #4CAF50;
       color: white;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #388e3c;
+      background-color: #45a049;
     }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    .entry {
+      background: #fff;
+      padding: 15px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
     }
     .timer {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d9534f;
       text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-    .timer button {
-      margin: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎯 Security+ Practice Exam Tracker</h1>
+  <h1>Security+ Practice Exam Tracker</h1>
 
-    <div class="timer">
-      <h2>🕒 Practice Timer</h2>
-      <div id="display">00:00:00</div>
-      <button onclick="startTimer()">Start</button>
-      <button onclick="stopTimer()">Stop</button>
-      <button onclick="resetTimer()">Reset</button>
-    </div>
-
-    <form id="trackerForm">
-      <table>
-        <tr>
-          <th>Attempt</th>
-          <th>Date Taken</th>
-          <th>Score (%)</th>
-          <th>Time Taken</th>
-          <th>Weak Areas</th>
-          <th>Notes</th>
-        </tr>
-        <tr>
-          <td><input type="number" name="attempt" required></td>
-          <td><input type="date" name="date" required></td>
-          <td><input type="number" name="score" min="0" max="100" required></td>
-          <td><input type="text" name="time" placeholder="e.g., 90 mins" id="timeInput"></td>
-          <td><input type="text" name="weak" placeholder="e.g., Cryptography"></td>
-          <td><input type="text" name="notes" placeholder="e.g., Guessed PKI"></td>
-        </tr>
-      </table>
-      <button type="submit">✅ Save Entry</button>
-    </form>
-
-    <h2>📊 Progress Log</h2>
-    <table id="logTable">
-      <tr>
-        <th>Attempt</th>
-        <th>Date Taken</th>
-        <th>Score (%)</th>
-        <th>Time Taken</th>
-        <th>Weak Areas</th>
-        <th>Notes</th>
-      </tr>
-    </table>
+  <div class="timer" id="timer">90:00</div>
+  <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+    <button onclick="startTimer()">Start Exam Mode</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
   </div>
 
+  <label>Topic:</label>
+  <input type="text" id="topic" placeholder="E.g. Threats and Vulnerabilities" />
+
+  <label>Score (%):</label>
+  <input type="number" id="score" placeholder="E.g. 85" />
+
+  <label>Time Taken:</label>
+  <input type="text" id="time" placeholder="E.g. 1h 15m" />
+
+  <label>Notes:</label>
+  <textarea id="notes" rows="4" placeholder="What did you learn or struggle with?"></textarea>
+
+  <button onclick="saveProgress()">Save Progress</button>
+
+  <div id="entries"></div>
+
   <script>
-    const form = document.getElementById('trackerForm');
-    const logTable = document.getElementById('logTable');
-    const timeInput = document.getElementById('timeInput');
+    let timerInterval;
+    let totalTime = 90 * 60; // 90 minutes in seconds
+    let currentTime = totalTime;
 
-    // Load entries from localStorage
-    window.onload = () => {
-      const entries = JSON.parse(localStorage.getItem('examEntries')) || [];
-      entries.forEach(entry => addRowToTable(entry));
-    };
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const data = new FormData(form);
-      const entry = {};
-      for (let [key, value] of data.entries()) {
-        entry[key] = value;
-      }
-
-      addRowToTable(entry);
-
-      const entries = JSON.parse(localStorage.getItem('examEntries')) || [];
-      entries.push(entry);
-      localStorage.setItem('examEntries', JSON.stringify(entries));
-
-      form.reset();
-    });
-
-    function addRowToTable(entry) {
-      const row = logTable.insertRow();
-      Object.values(entry).forEach(value => {
-        const cell = row.insertCell();
-        cell.textContent = value;
-      });
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     }
 
-    // Timer Logic
-    let timer;
-    let seconds = 0;
-
-    function updateDisplay() {
-      const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
-      const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-      const secs = String(seconds % 60).padStart(2, '0');
-      document.getElementById('display').textContent = `${hrs}:${mins}:${secs}`;
+    function updateTimerDisplay() {
+      document.getElementById("timer").textContent = formatTime(currentTime);
     }
 
     function startTimer() {
-      if (!timer) {
-        timer = setInterval(() => {
-          seconds++;
-          updateDisplay();
-        }, 1000);
-      }
+      if (timerInterval) return;
+      timerInterval = setInterval(() => {
+        if (currentTime > 0) {
+          currentTime--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          alert("Time's up!");
+          document.getElementById("time").value = "1h 30m";
+        }
+      }, 1000);
     }
 
     function stopTimer() {
-      clearInterval(timer);
-      timer = null;
-      timeInput.value = document.getElementById('display').textContent;
+      clearInterval(timerInterval);
+      timerInterval = null;
+      const elapsed = totalTime - currentTime;
+      const mins = Math.floor(elapsed / 60);
+      const secs = elapsed % 60;
+      document.getElementById("time").value = `${mins}m ${secs}s`;
     }
 
     function resetTimer() {
-      stopTimer();
-      seconds = 0;
-      updateDisplay();
-      timeInput.value = '';
+      clearInterval(timerInterval);
+      timerInterval = null;
+      currentTime = totalTime;
+      updateTimerDisplay();
+      document.getElementById("time").value = "";
     }
+
+    function saveProgress() {
+      const topic = document.getElementById("topic").value;
+      const score = document.getElementById("score").value;
+      const time = document.getElementById("time").value;
+      const notes = document.getElementById("notes").value;
+
+      const entry = { topic, score, time, notes };
+
+      let entries = JSON.parse(localStorage.getItem("examProgress")) || [];
+      entries.push(entry);
+      localStorage.setItem("examProgress", JSON.stringify(entries));
+      renderEntries();
+
+      document.getElementById("topic").value = "";
+      document.getElementById("score").value = "";
+      document.getElementById("time").value = "";
+      document.getElementById("notes").value = "";
+    }
+
+    function renderEntries() {
+      const entriesDiv = document.getElementById("entries");
+      entriesDiv.innerHTML = "";
+      const entries = JSON.parse(localStorage.getItem("examProgress")) || [];
+
+      entries.forEach((entry, index) => {
+        const div = document.createElement("div");
+        div.className = "entry";
+        div.innerHTML = `
+          <strong>Topic:</strong> ${entry.topic}<br/>
+          <strong>Score:</strong> ${entry.score}%<br/>
+          <strong>Time:</strong> ${entry.time}<br/>
+          <strong>Notes:</strong> ${entry.notes}<br/>
+        `;
+        entriesDiv.appendChild(div);
+      });
+    }
+
+    updateTimerDisplay();
+    renderEntries();
   </script>
 </body>
 </html>

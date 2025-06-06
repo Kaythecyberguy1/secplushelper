@@ -6,168 +6,152 @@
   <title>Security+ Practice Exam Tracker</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f9;
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
       padding: 20px;
-      max-width: 700px;
-      margin: auto;
     }
-    h1 {
-      color: #333;
+    h1, h2 {
       text-align: center;
     }
-    input, textarea, button, select {
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea, button {
       width: 100%;
       padding: 10px;
-      margin: 8px 0;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    .entry {
-      background: #fff;
-      padding: 15px;
-      margin-top: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
       border: 1px solid #ccc;
     }
-    .timer {
-      font-size: 24px;
+    button {
+      background: #0066cc;
+      color: white;
       font-weight: bold;
-      color: #d9534f;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    #timer {
+      font-size: 1.5em;
+      text-align: center;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
       text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Security+ Practice Exam Tracker</h1>
+  <div class="container">
+    <h1>Security+ Exam Practice Tracker</h1>
 
-  <div class="timer" id="timer">90:00</div>
-  <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
-    <button onclick="startTimer()">Start Exam Mode</button>
-    <button onclick="stopTimer()">Stop</button>
-    <button onclick="resetTimer()">Reset</button>
+    <label for="examName">Select Practice Exam</label>
+    <select id="examName">
+      <option value="Practice Exam A">Practice Exam A</option>
+      <option value="Practice Exam B">Practice Exam B</option>
+      <option value="Practice Exam C">Practice Exam C</option>
+    </select>
+
+    <label for="attempt">Attempt Number</label>
+    <input type="number" id="attempt" min="1" required />
+
+    <label for="date">Date</label>
+    <input type="date" id="date" required />
+
+    <label for="score">Score</label>
+    <input type="number" id="score" min="0" max="100" required />
+
+    <label for="notes">Notes</label>
+    <textarea id="notes"></textarea>
+
+    <button onclick="startTimer()">Start 90-Minute Exam Mode</button>
+    <div id="timer">01:30:00</div>
+
+    <button onclick="saveAttempt()">Save Attempt</button>
+
+    <h2>Saved Attempts</h2>
+    <table id="resultsTable">
+      <thead>
+        <tr>
+          <th>Exam</th>
+          <th>Attempt</th>
+          <th>Date</th>
+          <th>Score</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
-
-  <label>Attempt #:</label>
-  <input type="number" id="attempt" placeholder="E.g. 1" />
-
-  <label>Date:</label>
-  <input type="date" id="date" />
-
-  <label>Topic:</label>
-  <input type="text" id="topic" placeholder="E.g. Threats and Vulnerabilities" />
-
-  <label>Score (%):</label>
-  <input type="number" id="score" placeholder="E.g. 85" />
-
-  <label>Time Taken:</label>
-  <input type="text" id="time" placeholder="E.g. 1h 15m" />
-
-  <label>Notes:</label>
-  <textarea id="notes" rows="4" placeholder="What did you learn or struggle with?"></textarea>
-
-  <button onclick="saveProgress()">Save Progress</button>
-
-  <div id="entries"></div>
 
   <script>
     let timerInterval;
-    let totalTime = 90 * 60;
-    let currentTime = totalTime;
-
-    function formatTime(seconds) {
-      const m = Math.floor(seconds / 60);
-      const s = seconds % 60;
-      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-    }
-
-    function updateTimerDisplay() {
-      document.getElementById("timer").textContent = formatTime(currentTime);
-    }
-
     function startTimer() {
-      if (timerInterval) return;
+      clearInterval(timerInterval);
+      let time = 90 * 60;
+      const display = document.getElementById("timer");
+
+      function updateDisplay() {
+        const minutes = String(Math.floor(time / 60)).padStart(2, '0');
+        const seconds = String(time % 60).padStart(2, '0');
+        display.textContent = `${minutes}:${seconds}`;
+      }
+
+      updateDisplay();
       timerInterval = setInterval(() => {
-        if (currentTime > 0) {
-          currentTime--;
-          updateTimerDisplay();
-        } else {
-          clearInterval(timerInterval);
-          alert("Time's up!");
-          document.getElementById("time").value = "1h 30m";
-        }
+        time--;
+        updateDisplay();
+        if (time <= 0) clearInterval(timerInterval);
       }, 1000);
     }
 
-    function stopTimer() {
-      clearInterval(timerInterval);
-      timerInterval = null;
-      const elapsed = totalTime - currentTime;
-      const mins = Math.floor(elapsed / 60);
-      const secs = elapsed % 60;
-      document.getElementById("time").value = `${mins}m ${secs}s`;
-    }
-
-    function resetTimer() {
-      clearInterval(timerInterval);
-      timerInterval = null;
-      currentTime = totalTime;
-      updateTimerDisplay();
-      document.getElementById("time").value = "";
-    }
-
-    function saveProgress() {
+    function saveAttempt() {
+      const exam = document.getElementById("examName").value;
       const attempt = document.getElementById("attempt").value;
       const date = document.getElementById("date").value;
-      const topic = document.getElementById("topic").value;
       const score = document.getElementById("score").value;
-      const time = document.getElementById("time").value;
       const notes = document.getElementById("notes").value;
 
-      const entry = { attempt, date, topic, score, time, notes };
-
-      let entries = JSON.parse(localStorage.getItem("examProgress")) || [];
-      entries.push(entry);
-      localStorage.setItem("examProgress", JSON.stringify(entries));
-      renderEntries();
-
-      document.getElementById("attempt").value = "";
-      document.getElementById("date").value = "";
-      document.getElementById("topic").value = "";
-      document.getElementById("score").value = "";
-      document.getElementById("time").value = "";
-      document.getElementById("notes").value = "";
+      const data = { exam, attempt, date, score, notes };
+      const existing = JSON.parse(localStorage.getItem("examAttempts") || "[]");
+      existing.push(data);
+      localStorage.setItem("examAttempts", JSON.stringify(existing));
+      renderTable();
     }
 
-    function renderEntries() {
-      const entriesDiv = document.getElementById("entries");
-      entriesDiv.innerHTML = "";
-      const entries = JSON.parse(localStorage.getItem("examProgress")) || [];
-
-      entries.forEach((entry, index) => {
-        const div = document.createElement("div");
-        div.className = "entry";
-        div.innerHTML = `
-          <strong>Attempt:</strong> ${entry.attempt}<br/>
-          <strong>Date:</strong> ${entry.date}<br/>
-          <strong>Topic:</strong> ${entry.topic}<br/>
-          <strong>Score:</strong> ${entry.score}%<br/>
-          <strong>Time:</strong> ${entry.time}<br/>
-          <strong>Notes:</strong> ${entry.notes}<br/>
+    function renderTable() {
+      const table = document.querySelector("#resultsTable tbody");
+      table.innerHTML = "";
+      const attempts = JSON.parse(localStorage.getItem("examAttempts") || "[]");
+      for (const item of attempts) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.exam}</td>
+          <td>${item.attempt}</td>
+          <td>${item.date}</td>
+          <td>${item.score}</td>
+          <td>${item.notes}</td>
         `;
-        entriesDiv.appendChild(div);
-      });
+        table.appendChild(row);
+      }
     }
 
-    updateTimerDisplay();
-    renderEntries();
+    renderTable();
   </script>
 </body>
 </html>

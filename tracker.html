@@ -57,11 +57,27 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    .timer {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .timer button {
+      margin: 5px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🎯 Security+ Practice Exam Tracker</h1>
+
+    <div class="timer">
+      <h2>🕒 Practice Timer</h2>
+      <div id="display">00:00:00</div>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="stopTimer()">Stop</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
 
     <form id="trackerForm">
       <table>
@@ -77,7 +93,7 @@
           <td><input type="number" name="attempt" required></td>
           <td><input type="date" name="date" required></td>
           <td><input type="number" name="score" min="0" max="100" required></td>
-          <td><input type="text" name="time" placeholder="e.g., 90 mins"></td>
+          <td><input type="text" name="time" placeholder="e.g., 90 mins" id="timeInput"></td>
           <td><input type="text" name="weak" placeholder="e.g., Cryptography"></td>
           <td><input type="text" name="notes" placeholder="e.g., Guessed PKI"></td>
         </tr>
@@ -101,6 +117,7 @@
   <script>
     const form = document.getElementById('trackerForm');
     const logTable = document.getElementById('logTable');
+    const timeInput = document.getElementById('timeInput');
 
     // Load entries from localStorage
     window.onload = () => {
@@ -132,6 +149,39 @@
         const cell = row.insertCell();
         cell.textContent = value;
       });
+    }
+
+    // Timer Logic
+    let timer;
+    let seconds = 0;
+
+    function updateDisplay() {
+      const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+      const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+      const secs = String(seconds % 60).padStart(2, '0');
+      document.getElementById('display').textContent = `${hrs}:${mins}:${secs}`;
+    }
+
+    function startTimer() {
+      if (!timer) {
+        timer = setInterval(() => {
+          seconds++;
+          updateDisplay();
+        }, 1000);
+      }
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+      timer = null;
+      timeInput.value = document.getElementById('display').textContent;
+    }
+
+    function resetTimer() {
+      stopTimer();
+      seconds = 0;
+      updateDisplay();
+      timeInput.value = '';
     }
   </script>
 </body>

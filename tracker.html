@@ -3,13 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <title>Security+ Practice Exam Tracker</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #00796b;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f1f8e9;
+    }
+    input[type="text"], input[type="number"], input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #43a047;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #388e3c;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Security+ Practice Exam Tracker</h1>
+  <div class="container">
+    <h1>🎯 Security+ Practice Exam Tracker</h1>
 
-  <form id="trackerForm">
-    <table>
+    <form id="trackerForm">
+      <table>
+        <tr>
+          <th>Attempt</th>
+          <th>Date Taken</th>
+          <th>Score (%)</th>
+          <th>Time Taken</th>
+          <th>Weak Areas</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td><input type="number" name="attempt" required></td>
+          <td><input type="date" name="date" required></td>
+          <td><input type="number" name="score" min="0" max="100" required></td>
+          <td><input type="text" name="time" placeholder="e.g., 90 mins"></td>
+          <td><input type="text" name="weak" placeholder="e.g., Cryptography"></td>
+          <td><input type="text" name="notes" placeholder="e.g., Guessed PKI"></td>
+        </tr>
+      </table>
+      <button type="submit">✅ Save Entry</button>
+    </form>
+
+    <h2>📊 Progress Log</h2>
+    <table id="logTable">
       <tr>
         <th>Attempt</th>
         <th>Date Taken</th>
@@ -18,47 +95,44 @@
         <th>Weak Areas</th>
         <th>Notes</th>
       </tr>
-      <tr>
-        <td><input type="number" name="attempt" required></td>
-        <td><input type="date" name="date" required></td>
-        <td><input type="number" name="score" min="0" max="100" required></td>
-        <td><input type="text" name="time" placeholder="e.g., 90 mins"></td>
-        <td><input type="text" name="weak" placeholder="e.g., Cryptography"></td>
-        <td><input type="text" name="notes" placeholder="e.g., Guessed PKI"></td>
-      </tr>
     </table>
-    <button type="submit">Save Entry</button>
-  </form>
-
-  <h2>Progress Log</h2>
-  <table id="logTable">
-    <tr>
-      <th>Attempt</th>
-      <th>Date Taken</th>
-      <th>Score (%)</th>
-      <th>Time Taken</th>
-      <th>Weak Areas</th>
-      <th>Notes</th>
-    </tr>
-  </table>
+  </div>
 
   <script>
     const form = document.getElementById('trackerForm');
     const logTable = document.getElementById('logTable');
 
+    // Load entries from localStorage
+    window.onload = () => {
+      const entries = JSON.parse(localStorage.getItem('examEntries')) || [];
+      entries.forEach(entry => addRowToTable(entry));
+    };
+
     form.addEventListener('submit', function(event) {
       event.preventDefault();
 
       const data = new FormData(form);
-      const row = logTable.insertRow();
-
-      for (let value of data.values()) {
-        const cell = row.insertCell();
-        cell.textContent = value;
+      const entry = {};
+      for (let [key, value] of data.entries()) {
+        entry[key] = value;
       }
+
+      addRowToTable(entry);
+
+      const entries = JSON.parse(localStorage.getItem('examEntries')) || [];
+      entries.push(entry);
+      localStorage.setItem('examEntries', JSON.stringify(entries));
 
       form.reset();
     });
+
+    function addRowToTable(entry) {
+      const row = logTable.insertRow();
+      Object.values(entry).forEach(value => {
+        const cell = row.insertCell();
+        cell.textContent = value;
+      });
+    }
   </script>
 </body>
 </html>

@@ -631,7 +631,7 @@ footer {
     padding: 1rem;
     border: 2px solid #e9ecef;
     border-radius: 8px;
-    background: blue;
+    background: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
